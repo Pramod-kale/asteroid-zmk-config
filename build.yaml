@@ -1,0 +1,6 @@
+# Build configuration for Asteroid split keyboard
+include:
+  - board: nice_nano_v2
+    shield: asteroid_left
+  - board: nice_nano_v2
+    shield: asteroid_right

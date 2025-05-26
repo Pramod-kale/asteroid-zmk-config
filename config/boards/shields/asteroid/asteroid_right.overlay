@@ -1,0 +1,16 @@
+#include "asteroid.dtsi"
+
+&default_transform {
+    col-offset = <6>;
+};
+
+&kscan0 {
+    col-gpios
+        = <&pro_micro 106 GPIO_ACTIVE_HIGH>  // Col 6 - Pin 106
+        , <&pro_micro 104 GPIO_ACTIVE_HIGH>  // Col 7 - Pin 104
+        , <&pro_micro 100 GPIO_ACTIVE_HIGH>  // Col 8 - Pin 100
+        , <&pro_micro 111 GPIO_ACTIVE_HIGH>  // Col 9 - Pin 111
+        , <&pro_micro 113 GPIO_ACTIVE_HIGH>  // Col 10 - Pin 113
+        , <&pro_micro 115 GPIO_ACTIVE_HIGH>  // Col 11 - Pin 115
+        ;
+};

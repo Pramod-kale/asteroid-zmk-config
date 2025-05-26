@@ -1,0 +1,5 @@
+config SHIELD_ASTEROID_LEFT
+    def_bool $(shields_list_contains,asteroid_left)
+
+config SHIELD_ASTEROID_RIGHT
+    def_bool $(shields_list_contains,asteroid_right)
