@@ -5,6 +5,7 @@
 #include <dt-bindings/zmk/mouse.h>
 
 / {
+
     keymap {
         compatible = "zmk,keymap";
 
