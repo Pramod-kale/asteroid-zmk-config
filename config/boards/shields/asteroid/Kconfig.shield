@@ -7,21 +7,23 @@ config SHIELD_ASTEROID_RIGHT
 if SHIELD_ASTEROID_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "Asteroid Left"
+    default "Asteroid"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
 
 endif
 
 if SHIELD_ASTEROID_RIGHT
 
 config ZMK_KEYBOARD_NAME
-    default "Asteroid Right"
+    default "Asteroid"
 
 endif
 
-# Temporarily disable split functionality for standalone testing
-# if SHIELD_ASTEROID_LEFT || SHIELD_ASTEROID_RIGHT
-#
-# config ZMK_SPLIT
-#     default y
-#
-# endif
+if SHIELD_ASTEROID_LEFT || SHIELD_ASTEROID_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif

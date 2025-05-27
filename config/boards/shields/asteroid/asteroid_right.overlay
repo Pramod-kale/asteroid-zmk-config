@@ -2,21 +2,24 @@
 
 // Override the transform for standalone right keyboard
 &default_transform {
-    columns = <2>;
-    rows = <2>;
-    map = <
-RC(0,0) RC(0,1)
-RC(1,0) RC(1,1)
-    >;
+    col-offset = <6>;
 };
 
 &kscan0 {
     row-gpios
-        = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.06 (D3)
-        , <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.08 (D2)
+        = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // P0.06
+        , <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // P0.08
+        , <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.17
+        , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.20
+        , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.22
+        , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.11
         ;
     col-gpios
-        = <&gpio0 20 GPIO_ACTIVE_HIGH>  // P0.20 (D0)
-        , <&gpio0 17 GPIO_ACTIVE_HIGH>  // P0.17 (D1)
+        = <&gpio1 6 GPIO_ACTIVE_HIGH>   // P1.06
+        , <&gpio1 4 GPIO_ACTIVE_HIGH>   // P1.04
+        , <&gpio1 0 GPIO_ACTIVE_HIGH>   // P1.00
+        , <&gpio1 11 GPIO_ACTIVE_HIGH>  // P1.11
+        , <&gpio1 13 GPIO_ACTIVE_HIGH>  // P1.13
+        , <&gpio1 15 GPIO_ACTIVE_HIGH>  // P1.15
         ;
 };
