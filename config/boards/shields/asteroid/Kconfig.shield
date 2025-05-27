@@ -3,3 +3,27 @@ config SHIELD_ASTEROID_LEFT
 
 config SHIELD_ASTEROID_RIGHT
     def_bool $(shields_list_contains,asteroid_right)
+
+if SHIELD_ASTEROID_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Asteroid"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_ASTEROID_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Asteroid"
+
+endif
+
+if SHIELD_ASTEROID_LEFT || SHIELD_ASTEROID_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
