@@ -1,5 +1,15 @@
 #include "asteroid.dtsi"
 
+// Override the transform for standalone left keyboard
+&default_transform {
+    columns = <2>;
+    rows = <2>;
+    map = <
+RC(0,0) RC(0,1)
+RC(1,0) RC(1,1)
+    >;
+};
+
 &kscan0 {
     row-gpios
         = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.06

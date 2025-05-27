@@ -7,17 +7,14 @@ config SHIELD_ASTEROID_RIGHT
 if SHIELD_ASTEROID_LEFT
 
 config ZMK_KEYBOARD_NAME
-    default "Asteroid"
-
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
+    default "Asteroid Left"
 
 endif
 
 if SHIELD_ASTEROID_RIGHT
 
 config ZMK_KEYBOARD_NAME
-    default "Asteroid"
+    default "Asteroid Right"
 
 endif
 
