@@ -7,19 +7,19 @@
 
 &kscan0 {
     row-gpios
-        = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // P0.06 - Row 1 (working)
-        , <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // P0.08 - Row 2 (working)
-        , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.11 - Row 3 (was last, moving up)
-        , <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.17 - Row 4 (was 3rd, moving down)
-        , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.20 - Row 5 (was 4th, moving down)
-        , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.22 - Row 6 (was 5th, moving down)
+        = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // P0.06 - Row 1
+        , <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // P0.08 - Row 2
+        , <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.17 - Row 3
+        , <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.20 - Row 4
+        , <&gpio0 22 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.22 - Row 5
+        , <&gpio0 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.11 - Row 6
         ;
     col-gpios
-        = <&gpio1 15 GPIO_ACTIVE_HIGH>  // P1.15 (115)
-        , <&gpio1 0 GPIO_ACTIVE_HIGH>   // P1.00 (100)
-        , <&gpio1 4 GPIO_ACTIVE_HIGH>   // P1.04 (104)
-        , <&gpio1 6 GPIO_ACTIVE_HIGH>   // P1.06 (106)
-        , <&gpio1 13 GPIO_ACTIVE_HIGH>  // P1.13 (113)
-        , <&gpio1 11 GPIO_ACTIVE_HIGH>  // P1.11 (111)
+        = <&gpio1 15 GPIO_ACTIVE_HIGH>  // P1.15 (115) - Col 1
+        , <&gpio1 0 GPIO_ACTIVE_HIGH>   // P1.00 (100) - Col 2
+        , <&gpio1 4 GPIO_ACTIVE_HIGH>   // P1.04 (104) - Col 3
+        , <&gpio1 6 GPIO_ACTIVE_HIGH>   // P1.06 (106) - Col 4
+        , <&gpio1 13 GPIO_ACTIVE_HIGH>  // P1.13 (113) - Col 5
+        , <&gpio1 11 GPIO_ACTIVE_HIGH>  // P1.11 (111) - Col 6
         ;
 };
