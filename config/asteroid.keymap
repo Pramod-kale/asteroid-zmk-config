@@ -8,6 +8,23 @@
     keymap {
         compatible = "zmk,keymap";
 
+        // ============================================================================
+        // LAYER 0: DEFAULT LAYER (QWERTY)
+        // ============================================================================
+        // Layout:
+        // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
+        // │     │  1  │  2  │  3  │  4  │  5  │   │  6  │  7  │  8  │  9  │  0  │     │
+        // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+        // │ TAB │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │BKSP │
+        // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+        // │CAPS │  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  ;  │  \  │
+        // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+        // │SHIFT│  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │SHIFT│
+        // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+        // │     │     │ ALT │CTRL │ FN  │ CMD │   │  ←  │  ↓  │  ↑  │  →  │     │     │
+        // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+        // │     │     │     │     │     │SPACE│   │ENTER│     │     │     │     │     │
+        // └─────┴─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┴─────┘
         default_layer {
             bindings = <
                 &trans    &kp N1   &kp N2   &kp N3    &kp N4   &kp N5       &kp N6    &kp N7   &kp N8    &kp N9   &kp N0    &trans
@@ -19,17 +36,64 @@
             >;
         };
 
+        // ============================================================================
+        // LAYER 1: FUNCTION LAYER (FN + key)
+        // ============================================================================
+        // Activated by holding the FN key (mo 1)
+        // Features:
+        // - F1-F12 function keys
+        // - Bluetooth device management (BT1, BT2, BT3, CLEAR) - moved one column right
+        // - Mouse movement and clicks
+        // - Media controls (Play/Pause, Next, Prev, Vol+, Vol-) on row 3
+        // - Special symbols and punctuation
+        // - Grave/Tilde key next to ESC (` normally, ~ with shift)
+        //
+        // Layout:
+        // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
+        // │     │ F1  │ F2  │ F3  │ F4  │ F5  │   │ F6  │ F7  │ F8  │ F9  │ F10 │     │
+        // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+        // │ ESC │ `~  │     │     │     │     │   │ F11 │ F12 │  `  │  [  │  ]  │ DEL │
+        // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+        // │     │PREV │PLAY │NEXT │VOL- │VOL+ │   │     │     │     │     │  '  │     │
+        // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+        // │     │     │     │     │     │     │   │LCLK │RCLK │     │  -  │  =  │     │
+        // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+        // │     │     │ BT1 │ BT2 │ BT3 │BTCLR│   │ M←  │ M↓  │ M↑  │ M→  │     │     │
+        // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+        // │     │     │     │     │     │     │   │     │     │     │     │     │     │
+        // └─────┴─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┴─────┘
+        //
+        // Bluetooth Controls (Row 5, moved one column right):
+        // BT1, BT2, BT3 = Switch between 3 paired devices
+        // BTCLR = Clear all Bluetooth pairings
+        //
+        // Media Controls (Row 3):
+        // PREV = Previous track
+        // PLAY = Play/Pause toggle
+        // NEXT = Next track
+        // VOL- = Volume down
+        // VOL+ = Volume up
+        //
+        // Mouse Controls:
+        // LCLK/RCLK = Left/Right mouse clicks
+        // M←↓↑→ = Mouse movement (replaces trackpad)
         lower_layer {
             bindings = <
                 &trans    &kp F1        &kp F2        &kp F3        &kp F4        &kp F5          &kp F6        &kp F7        &kp F8      &kp F9         &kp F10    &trans
-                &kp ESC   &trans        &trans        &trans        &trans        &trans          &kp F11       &kp F12       &kp GRAVE   &kp LBKT       &kp RBKT   &kp DEL
-                &trans    &trans        &trans        &trans        &trans        &trans          &trans        &trans        &trans      &trans         &kp SQT    &trans
+                &kp ESC   &kp GRAVE     &trans        &trans        &trans        &trans          &kp F11       &kp F12       &kp GRAVE   &kp LBKT       &kp RBKT   &kp DEL
+                &trans    &kp C_PREV    &kp C_PP      &kp C_NEXT    &kp C_VOL_DN  &kp C_VOL_UP    &trans        &trans        &trans      &trans         &kp SQT    &trans
                 &trans    &trans        &trans        &trans        &trans        &trans          &mkp LCLK     &mkp RCLK     &trans      &kp MINUS      &kp EQUAL  &trans
-                &trans    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR    &trans          &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans     &trans
+                &trans    &trans        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_CLR      &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_UP &mmv MOVE_RIGHT &trans     &trans
                 &trans    &trans        &trans        &trans        &trans        &trans          &trans        &trans        &trans      &trans         &trans     &trans
             >;
         };
 
+        // ============================================================================
+        // LAYER 2: RAISE LAYER (Currently unused but available for customization)
+        // ============================================================================
+        // This layer is defined but not currently accessible from the default layer
+        // You can modify the default layer to access this (e.g., add &mo 2 somewhere)
+        // or customize this layer for additional functionality
         raise_layer {
             bindings = <
                 &kp TILDE &kp F11   &kp F12   &trans    &trans    &trans       &trans    &trans    &trans    &kp MINUS &kp EQUAL &trans
@@ -42,3 +106,64 @@
         };
     };
 };
+
+// ============================================================================
+// KEY REFERENCE GUIDE
+// ============================================================================
+//
+// BASIC KEYS:
+// &kp A-Z          = Letter keys
+// &kp N1-N0        = Number keys (1234567890)
+// &kp F1-F12       = Function keys
+// &kp SPACE        = Spacebar
+// &kp RET/ENTER    = Enter key
+// &kp TAB          = Tab key
+// &kp BSPC         = Backspace
+// &kp DEL          = Delete
+// &kp ESC          = Escape
+//
+// MODIFIERS:
+// &kp LSHFT/RSHFT  = Left/Right Shift
+// &kp LCTRL/RCTRL  = Left/Right Control
+// &kp LALT/RALT    = Left/Right Alt/Option
+// &kp LCMD/RCMD    = Left/Right Command (Mac)
+// &kp CAPS         = Caps Lock
+//
+// SYMBOLS:
+// &kp SEMI         = ; (semicolon)
+// &kp SQT          = ' (single quote)
+// &kp COMMA        = , (comma)
+// &kp DOT          = . (period)
+// &kp FSLH         = / (forward slash)
+// &kp BSLH         = \ (backslash)
+// &kp GRAVE        = ` (backtick)
+// &kp MINUS        = - (minus/hyphen)
+// &kp EQUAL        = = (equals)
+// &kp LBKT         = [ (left bracket)
+// &kp RBKT         = ] (right bracket)
+// &kp TILDE        = ~ (tilde)
+//
+// ARROWS:
+// &kp LEFT/RIGHT   = Left/Right arrow keys
+// &kp UP/DOWN      = Up/Down arrow keys
+//
+// LAYER CONTROLS:
+// &mo 1            = Momentary layer 1 (hold to activate)
+// &to 1            = Toggle to layer 1 (permanent until changed)
+// &trans           = Transparent (use key from lower layer)
+//
+// BLUETOOTH:
+// &bt BT_SEL 0     = Select Bluetooth device 1
+// &bt BT_SEL 1     = Select Bluetooth device 2
+// &bt BT_SEL 2     = Select Bluetooth device 3
+// &bt BT_CLR       = Clear all Bluetooth pairings
+//
+// MOUSE:
+// &mkp LCLK        = Mouse left click
+// &mkp RCLK        = Mouse right click
+// &mmv MOVE_LEFT   = Move mouse left
+// &mmv MOVE_RIGHT  = Move mouse right
+// &mmv MOVE_UP     = Move mouse up
+// &mmv MOVE_DOWN   = Move mouse down
+//
+// ============================================================================
