@@ -28,7 +28,7 @@ This configuration includes full **ZMK Studio** support, allowing you to modify 
    - **Web App**: Visit [zmk.studio](https://zmk.studio/) in Chrome/Edge
    - **Desktop App**: Download from the [ZMK Studio releases page](https://github.com/zmkfirmware/zmk-studio/releases)
 
-4. **Unlock Your Keyboard**: Press the studio unlock key (bottom-right corner by default) to allow ZMK Studio to make changes
+4. **Unlock Your Keyboard**: Press the studio unlock key (FN + W) to allow ZMK Studio to make changes
 
 5. **Configure Your Layout**: Use the visual interface to:
    - Remap any key to any function
@@ -49,7 +49,7 @@ This configuration includes full **ZMK Studio** support, allowing you to modify 
 
 ### Studio Unlock Key
 
-The studio unlock key is located at the bottom-right position (Row 6, Column 12). Press this key to unlock your keyboard for ZMK Studio configuration. Once unlocked, you can modify your keymap through the ZMK Studio interface.
+The studio unlock key is accessed by pressing **FN + W** (hold the FN key and press W). This puts the unlock key in the function layer next to the grave/tilde key, making it easily accessible but out of the way during normal typing. Once pressed, you can modify your keymap through the ZMK Studio interface.
 
 **Note**: After using ZMK Studio to modify your keymap, changes made to the `.keymap` file will not take effect unless you perform a "Restore Stock Settings" action in ZMK Studio.
 
@@ -162,7 +162,7 @@ This repository includes automated builds via GitHub Actions. Firmware files are
 ### ZMK Studio Connection Issues
 - Ensure the left side is connected via USB or properly paired via Bluetooth
 - Try refreshing the ZMK Studio web page or restarting the desktop app
-- Press the studio unlock key (bottom-right) to enable configuration mode
+- Press the studio unlock key (FN + W) to enable configuration mode
 - Check that your browser supports WebHID (Chrome/Edge required for web app)
 
 ### Bluetooth Issues

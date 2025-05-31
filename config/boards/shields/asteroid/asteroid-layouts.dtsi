@@ -3,7 +3,7 @@
 / {
     asteroid_layout: asteroid_layout {
         compatible = "zmk,physical-layout";
-        display-name = "Asteroid 6x6 Split";
+        display-name = "Asteroid";
 
         keys  //                     w   h    x    y     rot    rx    ry
             // Left side - Row 1 (numbers)
