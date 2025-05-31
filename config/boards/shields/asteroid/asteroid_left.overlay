@@ -5,6 +5,20 @@
     col-offset = <0>;
 };
 
+// Add CDC-ACM console for ZMK Studio USB communication
+/ {
+    chosen {
+        zephyr,console = &cdc_acm_uart0;
+    };
+};
+
+&zephyr_udc0 {
+    cdc_acm_uart0: cdc_acm_uart0 {
+        compatible = "zephyr,cdc-acm-uart";
+        label = "CDC_ACM_0";
+    };
+};
+
 &kscan0 {
     row-gpios
         = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // P0.06 - Row 1 (working)
