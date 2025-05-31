@@ -1,153 +1,213 @@
-# Asteroid Split Keyboard - ZMK Configuration
+# Asteroid ZMK Configuration
 
-This repository contains the ZMK firmware configuration for the Asteroid split keyboard.
-
-## Keyboard Specifications
-
-- **Layout**: 6x6 split keyboard (72 keys total)
-- **Controller**: Pro Micro nRF52840 (Nice!Nano v2 compatible)
-- **Connection**: Wireless split with Bluetooth
-- **Left side**: Central (master)
-- **Right side**: Peripheral (slave)
+A complete ZMK firmware configuration for the **Asteroid** split keyboard - a custom 6x6 layout split keyboard (72 keys total) designed for wireless operation with Nice!Nano v2 controllers.
 
 ## Features
 
-- **QWERTY Layout**: Standard QWERTY layout with function layers
-- **3 Bluetooth Connections**: Switch between up to 3 paired devices
-- **Power Management**: Auto-sleep after 15 minutes of inactivity
-- **Split Communication**: Wireless communication between halves
-- **Function Layers**:
-  - Layer 0: Default QWERTY with number row and arrow keys
-  - Layer 1: Bluetooth controls, symbols, and mouse movement
+- **6x6 Split Layout**: 72 keys total (36 per side)
+- **Wireless Bluetooth**: Nice!Nano v2 nRF52840 controllers
+- **QWERTY Layout**: Modern ergonomic layout with function layers
+- **ZMK Studio Support**: Runtime keymap configuration without flashing firmware
+- **Mouse Support**: Built-in mouse movement and click functionality
+- **3 Bluetooth Devices**: Quick switching between paired devices
+- **Power Management**: 15-minute sleep timeout for battery conservation
 
-## Pin Mapping
+## ZMK Studio Support
 
-Based on your PCB layout:
+This configuration includes full **ZMK Studio** support, allowing you to modify your keymap in real-time without flashing new firmware.
 
-### Row Pins (Same for both halves)
-- Row 0: Pin 006
-- Row 1: Pin 008
-- Row 2: Pin 017
-- Row 3: Pin 020
-- Row 4: Pin 022
-- Row 5: Pin 011
+### Getting Started with ZMK Studio
 
-### Column Pins
-**Left Half:**
-- Col 0: Pin 115
-- Col 1: Pin 100
-- Col 2: Pin 104
-- Col 3: Pin 106
-- Col 4: Pin 113
-- Col 5: Pin 111
+1. **Flash the Firmware**: Build and flash the firmware to your keyboard (this only needs to be done once)
 
-**Right Half:**
-- Col 6: Pin 106
-- Col 7: Pin 104
-- Col 8: Pin 100
-- Col 9: Pin 111
-- Col 10: Pin 113
-- Col 11: Pin 115
+2. **Connect Your Keyboard**:
+   - **USB**: Connect the left side (central) via USB cable
+   - **Bluetooth**: Pair the keyboard with your computer
 
-## Key Layout
+3. **Access ZMK Studio**:
+   - **Web App**: Visit [zmk.studio](https://zmk.studio/) in Chrome/Edge
+   - **Desktop App**: Download from the [ZMK Studio releases page](https://github.com/zmkfirmware/zmk-studio/releases)
 
+4. **Unlock Your Keyboard**: Press the studio unlock key (bottom-right corner by default) to allow ZMK Studio to make changes
+
+5. **Configure Your Layout**: Use the visual interface to:
+   - Remap any key to any function
+   - Create custom layers
+   - Adjust behaviors and settings
+   - Save and load different configurations
+
+### ZMK Studio Features Available
+
+- ✅ Real-time keymap editing
+- ✅ Layer management and naming
+- ✅ Bluetooth device switching
+- ✅ Mouse controls configuration
+- ✅ Function key assignments
+- ✅ Media key controls
+- ✅ Multiple layout support
+- ✅ Import/export configurations
+
+### Studio Unlock Key
+
+The studio unlock key is located at the bottom-right position (Row 6, Column 12). Press this key to unlock your keyboard for ZMK Studio configuration. Once unlocked, you can modify your keymap through the ZMK Studio interface.
+
+**Note**: After using ZMK Studio to modify your keymap, changes made to the `.keymap` file will not take effect unless you perform a "Restore Stock Settings" action in ZMK Studio.
+
+## Hardware Specifications
+
+- **Controllers**: Nice!Nano v2 (nRF52840)
+- **Layout**: 6x6 split (72 keys total)
+- **Connectivity**: Wireless Bluetooth + USB-C
+- **Battery**: 110mAh LiPo (recommended)
+- **Switches**: MX-compatible
+- **Keycaps**: Standard 1u profile
+
+## Pin Configuration
+
+### Left Side (Central/Master)
+- **Rows**: P0.06, P0.08, P0.20, P0.22, P0.24, P0.11
+- **Columns**: P1.15, P1.00, P1.04, P1.06, P1.13, P1.11
+
+### Right Side (Peripheral/Slave)
+- **Rows**: P0.31, P0.29, P0.02, P0.10, P0.09, P0.24
+- **Columns**: P1.06, P1.04, P1.00, P1.11, P1.13, P1.15
+
+## Default Layout
+
+### Layer 0 (Base/QWERTY)
 ```
-Default Layer (0) - Standard Mac QWERTY:
 ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│ `~  │ 1!  │ 2@  │ 3#  │ 4$  │ 5%  │   │ 6^  │ 7&  │ 8*  │ 9(  │ 0)  │ -_  │
+│     │  1  │  2  │  3  │  4  │  5  │   │  6  │  7  │  8  │  9  │  0  │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ TAB │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │ [{  │
+│ TAB │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │BKSP │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│CAPS │  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │ ;:  │ '"  │
+│CAPS │  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  ;  │  \  │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│SHIFT│  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │ ,<  │ .>  │ /?  │SHIFT│
+│SHIFT│  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │SHIFT│
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │ FN  │CTRL │ OPT │ CMD │   │ SPC │ CMD │ OPT │     │     │     │
+│     │     │ ALT │CTRL │ FN  │ CMD │   │  ←  │  ↓  │  ↑  │  →  │     │     │
+├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+│     │     │     │     │     │SPACE│   │ENTER│     │     │     │     │UNLCK│
+└─────┴─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┴─────┘
+```
+
+### Layer 1 (Function/FN)
+```
+┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
+│     │ F1  │ F2  │ F3  │ F4  │ F5  │   │ F6  │ F7  │ F8  │ F9  │ F10 │     │
+├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+│ ESC │ `~  │     │     │     │     │   │ F11 │ F12 │  `  │  [  │  ]  │ DEL │
+├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+│     │PREV │PLAY │NEXT │VOL- │VOL+ │   │     │     │     │     │  '  │     │
+├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+│     │     │ BT1 │ BT2 │ BT3 │BTCLR│   │LCLK │RCLK │     │  -  │  =  │     │
+├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
+│     │     │     │     │     │     │   │ M←  │ M↓  │ M↑  │ M→  │     │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │     │     │     │     │     │     │   │     │     │     │     │     │     │
 └─────┴─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┴─────┘
 ```
 
-## Function Layer (FN + Key)
+## Key Features
 
-Access by holding the FN key (bottom row, third position from left):
+### Bluetooth Management
+- **BT1, BT2, BT3**: Switch between 3 paired devices (FN + X, C, V)
+- **BTCLR**: Clear all pairings (FN + B)
+- **Auto-sleep**: 15 minutes of inactivity
 
-**Function Keys & System:**
-- **Row 1**: ESC, F1-F11 (complete function key row)
-- **Row 2**: BT1-BT5 (Bluetooth device selection), F12, Volume Down/Up, Mute, Previous Track
-- **Row 3**: Missing symbols: = (equals), Return
-- **Row 4**: Play/Pause, Next Track, Bluetooth Clear
-- **Row 5**: Arrow keys (←↓↑→) for navigation
+### Mouse Controls
+- **Mouse Clicks**: Left/Right click (FN + N, M)
+- **Mouse Movement**: Arrow-style movement (FN + Arrow keys)
 
-**Missing Keys from Standard Layout:**
-- **]} (right bracket)**: FN + P
-- **\| (backslash/pipe)**: FN + [{
-- **= (equals)**: FN + ;
-- **Return**: FN + '
-- **Delete**: FN + /
+### Media Controls
+- **Play/Pause**: FN + S
+- **Previous/Next**: FN + A, D
+- **Volume**: FN + F, G
 
-## Complete Mac Keyboard Compatibility
-
-This layout provides **100% Mac keyboard functionality**:
-
-✅ **All standard keys**: Every key from a Mac keyboard is accessible
-✅ **Proper SHIFT behavior**: All shifted symbols work exactly as expected
-✅ **Function keys**: F1-F12 accessible via FN layer
-✅ **Media controls**: Volume, play/pause, track navigation
-✅ **Bluetooth**: 5-device switching + clear function
-✅ **Navigation**: Arrow keys via FN layer
-✅ **System keys**: ESC, Delete, Return all accessible
-
-**Standard Mac Key Behavior:**
-- SHIFT + letters = Uppercase
-- SHIFT + numbers = Symbols (! @ # $ % ^ & * ( ))
-- SHIFT + symbols = Alternate symbols ({ } | + _ etc.)
-- All modifier combinations work as expected
+### Function Keys
+- **F1-F10**: FN + Number row
+- **F11-F12**: FN + Y, U
 
 ## Building the Firmware
 
-This configuration is designed to work with GitHub Actions for automatic firmware building. When you push changes to this repository, the firmware will be automatically built and available as artifacts.
+### Prerequisites
+- [ZMK development environment](https://zmk.dev/docs/development/setup)
+- West build tool
+- ARM GCC toolchain
 
-### Manual Building
+### Build Commands
 
-If you want to build locally:
+```bash
+# Build left side (with ZMK Studio support)
+west build -d build/left -b nice_nano_v2 -- -DSHIELD=asteroid_left -DZMK_CONFIG="$(pwd)/config"
 
-1. Set up the ZMK development environment
-2. Clone this repository to your ZMK config folder
-3. Build with: `west build -d build/left -b nice_nano_v2 -- -DSHIELD=asteroid_left`
-4. Build with: `west build -d build/right -b nice_nano_v2 -- -DSHIELD=asteroid_right`
+# Build right side
+west build -d build/right -b nice_nano_v2 -- -DSHIELD=asteroid_right -DZMK_CONFIG="$(pwd)/config"
+```
 
-## Flashing
+### GitHub Actions
+This repository includes automated builds via GitHub Actions. Firmware files are automatically generated for each commit and available in the Actions tab.
 
-1. Download the firmware files from GitHub Actions artifacts
-2. Put your Nice!Nano into bootloader mode (double-tap reset)
-3. Copy the `.uf2` file to the mounted drive
-4. Repeat for both halves
+## Flashing Instructions
 
-## Pairing Split Halves
+1. **Download Firmware**: Get the `.uf2` files from GitHub Actions or local build
+2. **Enter Bootloader**: Double-tap the reset button on each Nice!Nano
+3. **Copy Firmware**: Drag the appropriate `.uf2` file to the mounted drive
+4. **Repeat**: Flash both left and right sides
 
-1. Flash both halves with their respective firmware
-2. Reset both halves
-3. The left half will appear as "Asteroid" in Bluetooth settings
-4. The halves should automatically pair with each other
-
-## Customization
-
-You can customize the keymap by editing `config/asteroid.keymap`. The configuration supports:
-- Custom key bindings
-- Macro definitions
-- Tap-dance behaviors
-- Combo keys
-- RGB underglow (if hardware is added)
-- Rotary encoder support (if hardware is added)
+**Important**: Always flash the left side (central) first, then the right side.
 
 ## Troubleshooting
 
-- **Split halves not communicating**: Reset both halves and ensure they're both powered
-- **Keys not responding**: Check your wiring against the pin mapping above
-- **Bluetooth issues**: Clear pairings and re-pair devices
-- **Battery drain**: Ensure sleep mode is working (15-minute timeout)
+### ZMK Studio Connection Issues
+- Ensure the left side is connected via USB or properly paired via Bluetooth
+- Try refreshing the ZMK Studio web page or restarting the desktop app
+- Press the studio unlock key (bottom-right) to enable configuration mode
+- Check that your browser supports WebHID (Chrome/Edge required for web app)
+
+### Bluetooth Issues
+- Clear pairings: FN + B (BTCLR)
+- Re-pair both halves and host device
+- Check battery levels
+- Ensure both halves are powered on
+
+### Build Issues
+- Verify all pin assignments match your hardware
+- Check for syntax errors in configuration files
+- Ensure ZMK is up to date
+- Review build logs for specific error messages
+
+### Split Communication
+- Both halves must be powered on
+- Left side acts as central (connects to computer)
+- Right side connects to left side automatically
+- Reset both halves if connection fails
+
+## Customization
+
+### Adding Features
+- **RGB Underglow**: Uncomment RGB settings in `asteroid.conf`
+- **Rotary Encoders**: Uncomment encoder settings and add to device tree
+- **Displays**: Add OLED configuration for status display
+
+### Layout Modifications
+With ZMK Studio support, you can modify your layout in real-time without editing configuration files. However, if you prefer to edit the source:
+
+1. Edit `config/asteroid.keymap` for key assignments
+2. Modify `config/asteroid.conf` for feature settings
+3. Update device tree files for hardware changes
+4. Rebuild and flash firmware
 
 ## Contributing
 
-Feel free to submit issues and pull requests to improve this configuration.
+Feel free to submit issues, feature requests, or pull requests to improve this configuration.
+
+## License
+
+This configuration is provided under the MIT License. See LICENSE file for details.
+
+## Acknowledgments
+
+- [ZMK Firmware](https://zmk.dev/) - The foundation for this configuration
+- [Nice!Nano](https://nicekeyboards.com/nice-nano/) - Excellent wireless controller
+- ZMK Community - For support and inspiration

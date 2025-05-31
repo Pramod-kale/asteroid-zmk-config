@@ -1,9 +1,11 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include "asteroid-layouts.dtsi"
 
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,matrix_transform = &default_transform;
+        // Removed zmk,matrix-transform for ZMK Studio compatibility
+        // The physical layout will handle the transform assignment
     };
 
     default_transform: keymap_transform_0 {
@@ -29,4 +31,10 @@ RC(5,0) RC(5,1) RC(5,2) RC(5,3) RC(5,4) RC(5,5)  RC(5,6) RC(5,7) RC(5,8) RC(5,9)
         debounce-scan-period-ms = <1>;
         // row-gpios and col-gpios will be defined in the .overlay files
     };
+};
+
+// Assign the transform and kscan to the physical layout
+&asteroid_layout {
+    transform = <&default_transform>;
+    kscan = <&kscan0>;
 };
