@@ -86,21 +86,7 @@
             , <&key_physical_attrs 100 100 1100  400       0     0     0>  // Empty
             , <&key_physical_attrs 100 100 1200  400       0     0     0>  // Empty
 
-            // Left side - Row 6 (space)
-            , <&key_physical_attrs 100 100    0  500       0     0     0>  // Empty
-            , <&key_physical_attrs 100 100  100  500       0     0     0>  // Empty
-            , <&key_physical_attrs 100 100  200  500       0     0     0>  // Empty
-            , <&key_physical_attrs 100 100  300  500       0     0     0>  // Empty
-            , <&key_physical_attrs 100 100  400  500       0     0     0>  // Empty
-            , <&key_physical_attrs 100 100  500  500       0     0     0>  // SPACE
-
-            // Right side - Row 6 (enter)
-            , <&key_physical_attrs 100 100  700  500       0     0     0>  // ENTER
-            , <&key_physical_attrs 100 100  800  500       0     0     0>  // Empty
-            , <&key_physical_attrs 100 100  900  500       0     0     0>  // Empty
-            , <&key_physical_attrs 100 100 1000  500       0     0     0>  // Empty
-            , <&key_physical_attrs 100 100 1100  500       0     0     0>  // Empty
-            , <&key_physical_attrs 100 100 1200  500       0     0     0>  // Empty
+            // Row 6 removed - not physically present on this keyboard build
             ;
     };
 };

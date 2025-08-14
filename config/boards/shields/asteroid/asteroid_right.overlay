@@ -5,21 +5,51 @@
     col-offset = <6>;
 };
 
+// LED configuration for Pro Micro nRF52840 clone
+/ {
+    chosen {
+        zmk,led = &red_led;  // Use red LED for charging completion status
+    };
+
+    leds {
+        compatible = "gpio-leds";
+        blue_led: led_0 {
+            gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+            label = "Blue LED";
+        };
+        red_led: led_1 {
+            gpios = <&gpio1 9 GPIO_ACTIVE_HIGH>;
+            label = "Red LED";
+        };
+    };
+
+    // Power switch GPIO configuration for deep sleep wake-up
+    // Using P0.03 - verified unused pin on Nice Nano v2, wake-up capable
+    // P0.03 is exposed on pin D3 and not used in current matrix configuration
+    power_switch {
+        compatible = "gpio-keys";
+        power_key: power_key {
+            gpios = <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
+            label = "Power Switch";
+        };
+    };
+};
+
 &kscan0 {
     row-gpios
-        = <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // P0.31
-        , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // P0.29
-        , <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.02
-        , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.10
-        , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.09
-        , <&gpio0 24 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // P0.24
+        = <&gpio0 31 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // P0.31 - Row 1
+        , <&gpio0 29 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // P0.29 - Row 2
+        , <&gpio0 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>     // P0.02 - Row 3
+        , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>    // P0.10 - Row 4
+        , <&gpio0 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>     // P0.09 - Row 5
+        // Row 6 (P0.24) removed - not physically present
         ;
     col-gpios
-        = <&gpio1 6 GPIO_ACTIVE_HIGH>   // P1.06 (106)
-        , <&gpio1 4 GPIO_ACTIVE_HIGH>   // P1.04 (104)
-        , <&gpio1 0 GPIO_ACTIVE_HIGH>   // P1.00 (100)
-        , <&gpio1 11 GPIO_ACTIVE_HIGH>  // P1.11 (111)
-        , <&gpio1 13 GPIO_ACTIVE_HIGH>  // P1.13 (113)
-        , <&gpio1 15 GPIO_ACTIVE_HIGH>  // P1.15 (115)
+        = <&gpio1 6 GPIO_ACTIVE_HIGH>   // P1.06 (106) - Col 1
+        , <&gpio1 4 GPIO_ACTIVE_HIGH>   // P1.04 (104) - Col 2
+        , <&gpio1 0 GPIO_ACTIVE_HIGH>   // P1.00 (100) - Col 3
+        , <&gpio1 11 GPIO_ACTIVE_HIGH>  // P1.11 (111) - Col 4
+        , <&gpio1 13 GPIO_ACTIVE_HIGH>  // P1.13 (113) - Col 5
+        , <&gpio1 15 GPIO_ACTIVE_HIGH>  // P1.15 (115) - Col 6
         ;
 };
