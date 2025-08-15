@@ -13,17 +13,15 @@
         // ============================================================================
         // Layout:
         // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-        // │     │  1  │  2  │  3  │  4  │  5  │   │  6  │  7  │  8  │  9  │  0  │     │
+        // │     │  1   │  2  │  3   │  4  │  5   │   │  6  │  7   │  8  │  9   │  0  │      │
         // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-        // │ TAB │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │BKSP │
+        // │ ESC │   Q  │  W  │   E  │  R   │  T  │   │  Y  │   U  │  I  │   O  │  P  │ BKSP │
         // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-        // │CAPS │  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  ;  │  \  │
+        // │ TAB  │  A  │  S  │  D   │  F  │  G   │   │  H  │  J   │  K  │  L   │  ;  │ ENTER│
         // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-        // │SHIFT│  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │SHIFT│
+        // │SHIFT│   Z  │  X  │   C  │  V  │   B  │   │  N  │  M   │  ,  │  .   │  /  │ SHIFT│
         // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-        // │     │     │ ALT │CTRL │ FN  │ CMD │   │  ←  │  ↓  │  ↑  │  →  │     │     │
-        // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-        // │     │     │     │     │     │SPACE│   │ENTER│     │     │     │     │     │
+        // │     │      │ CTRL │ ALT │ CMD │ SPACE│   │ FN   │     │     │      │     │      │
         // └─────┴─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┴─────┘
         default_layer {
             bindings = <
@@ -36,46 +34,21 @@
         };
 
         // ============================================================================
-        // LAYER 1: FUNCTION LAYER (FN + key)
+        // LAYER 1: LOWER LAYER (FUNCTION, MEDIA, ARROWS)
         // ============================================================================
-        // Activated by holding the FN key (mo 1)
-        // Features:
-        // - F1-F12 function keys
-        // - Bluetooth device management (BT1, BT2, BT3, CLEAR) - moved to row 4
-        // - Mouse movement and clicks
-        // - Media controls (Play/Pause, Next, Prev, Vol+, Vol-) on row 3
-        // - Special symbols and punctuation
-        // - Grave/Tilde key next to ESC (` normally, ~ with shift)
-        //
         // Layout:
         // ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-        // │     │ F1  │ F2  │ F3  │ F4  │ F5  │   │ F6  │ F7  │ F8  │ F9  │ F10 │     │
+        // │      │ F1  │ F2   │ F3  │ F4   │ F5  │   │ F6  │ F7   │ F8  │  -   │  =  │      │
         // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-        // │ ESC │ `~  │     │     │     │     │   │ F11 │ F12 │  `  │  [  │  ]  │ DEL │
+        // │  `   │     │      │     │     │      │   │ F11 │ F12  │     │  [   │  ]  │  DEL │
         // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-        // │     │PREV │PLAY │NEXT │VOL- │VOL+ │   │     │     │     │     │  '  │     │
+        // │      │PREV │PLAY │ NEXT │VOL+ │ VOL- │   │BRI-  │BRI+ │  ↑  │      │  '  │   \  │
         // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-        // │     │     │ BT1 │ BT2 │ BT3 │BTCLR│   │LCLK │RCLK │     │  -  │  =  │     │
+        // │      │     │ BT1  │ BT2 │ BT3  │BTCLR│   │     │  ←   │  ↓  │  →   │     │ UNLCK│
         // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-        // │     │     │     │     │     │     │   │ M←  │ M↓  │ M↑  │ M→  │     │     │
-        // ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-        // │     │     │     │     │     │     │   │     │     │     │     │     │     │
+        // │      │     │      │     │     │      │   │     │      │     │      │     │      │
         // └─────┴─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┴─────┘
-        //
-        // Bluetooth Controls (Row 4, columns 3-6):
-        // BT1, BT2, BT3 = Switch between 3 paired devices
-        // BTCLR = Clear all Bluetooth pairings
-        //
-        // Media Controls (Row 3):
-        // PREV = Previous track
-        // PLAY = Play/Pause toggle
-        // NEXT = Next track
-        // VOL- = Volume down
-        // VOL+ = Volume up
-        //
-        // Mouse Controls:
-        // LCLK/RCLK = Left/Right mouse clicks
-        // M←↓↑→ = Mouse movement (replaces trackpad)
+
         lower_layer {
             bindings = <
                 &trans    &kp F1        &kp F2        &kp F3        &kp F4        &kp F5          &kp F6        &kp F7        &kp F8      &kp MINUS      &kp EQUAL  &trans
@@ -96,64 +69,3 @@
         };
     };
 };
-
-// ============================================================================
-// KEY REFERENCE GUIDE
-// ============================================================================
-//
-// BASIC KEYS:
-// &kp A-Z          = Letter keys
-// &kp N1-N0        = Number keys (1234567890)
-// &kp F1-F12       = Function keys
-// &kp SPACE        = Spacebar
-// &kp RET/ENTER    = Enter key
-// &kp TAB          = Tab key
-// &kp BSPC         = Backspace
-// &kp DEL          = Delete
-// &kp ESC          = Escape
-//
-// MODIFIERS:
-// &kp LSHFT/RSHFT  = Left/Right Shift
-// &kp LCTRL/RCTRL  = Left/Right Control
-// &kp LALT/RALT    = Left/Right Alt/Option
-// &kp LCMD/RCMD    = Left/Right Command (Mac)
-// &kp CAPS         = Caps Lock
-//
-// SYMBOLS:
-// &kp SEMI         = ; (semicolon)
-// &kp SQT          = ' (single quote)
-// &kp COMMA        = , (comma)
-// &kp DOT          = . (period)
-// &kp FSLH         = / (forward slash)
-// &kp BSLH         = \ (backslash)
-// &kp GRAVE        = ` (backtick)
-// &kp MINUS        = - (minus/hyphen)
-// &kp EQUAL        = = (equals)
-// &kp LBKT         = [ (left bracket)
-// &kp RBKT         = ] (right bracket)
-// &kp TILDE        = ~ (tilde)
-//
-// ARROWS:
-// &kp LEFT/RIGHT   = Left/Right arrow keys
-// &kp UP/DOWN      = Up/Down arrow keys
-//
-// LAYER CONTROLS:
-// &mo 1            = Momentary layer 1 (hold to activate)
-// &to 1            = Toggle to layer 1 (permanent until changed)
-// &trans           = Transparent (use key from lower layer)
-//
-// BLUETOOTH:
-// &bt BT_SEL 0     = Select Bluetooth device 1
-// &bt BT_SEL 1     = Select Bluetooth device 2
-// &bt BT_SEL 2     = Select Bluetooth device 3
-// &bt BT_CLR       = Clear all Bluetooth pairings
-//
-// MOUSE:
-// &mkp LCLK        = Mouse left click
-// &mkp RCLK        = Mouse right click
-// &mmv MOVE_LEFT   = Move mouse left
-// &mmv MOVE_RIGHT  = Move mouse right
-// &mmv MOVE_UP     = Move mouse up
-// &mmv MOVE_DOWN   = Move mouse down
-//
-// ============================================================================
