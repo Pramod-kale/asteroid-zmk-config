@@ -23,7 +23,7 @@
         };
     };
 
-        // Power switch GPIO configuration for deep sleep wake-up  
+        // Power switch GPIO configuration for deep sleep wake-up
     // Using P0.03 - verified unused pin on Nice Nano v2, wake-up capable
     // P0.03 is exposed on pin D3 and not used in current matrix configuration
     power_switch {
