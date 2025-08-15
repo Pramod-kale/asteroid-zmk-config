@@ -68,7 +68,7 @@ The studio unlock key is accessed by pressing **FN + SHIFT** (hold the FN key an
 - **Rows**: P0.06, P0.08, P0.20, P0.22, P0.24 (5 rows)
 - **Columns**: P1.15, P1.00, P1.04, P1.06, P1.13, P1.11 (6 columns)
 
-### Right Side (Peripheral/Slave)  
+### Right Side (Peripheral/Slave)
 - **Rows**: P0.31, P0.29, P0.02, P0.10, P0.09 (5 rows)
 - **Columns**: P1.06, P1.04, P1.00, P1.11, P1.13, P1.15 (6 columns)
 
