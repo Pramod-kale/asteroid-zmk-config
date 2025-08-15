@@ -33,7 +33,21 @@
         power_key: power_key {
             gpios = <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
             label = "Power Switch";
+            wakeup-source;
         };
+    };
+
+    // ZMK Soft-off wake-up trigger configuration
+    soft_off_wakers {
+        compatible = "zmk,soft-off-wakeup-sources";
+        wakeup-sources = <&wakeup_trigger>;
+    };
+
+    wakeup_trigger: wakeup_trigger {
+        compatible = "zmk,gpio-key-wakeup-trigger";
+        trigger = <&power_key>;
+        wakeup-source;
+        extra-gpios = <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
     };
 };
 
