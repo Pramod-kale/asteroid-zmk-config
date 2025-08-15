@@ -23,17 +23,7 @@
         };
     };
 
-            // Soft-off wake-up configuration
-    soft_off_wakers {
-        compatible = "zmk,soft-off-wakeup-sources";
-        wakeup-sources = <&wakeup_trigger>;
-    };
 
-    wakeup_trigger: wakeup_trigger {
-        compatible = "zmk,gpio-key-wakeup-trigger";
-        wakeup-source;
-        extra-gpios = <&gpio0 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>;
-    };
 };
 
 &kscan0 {

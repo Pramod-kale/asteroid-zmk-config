@@ -1,10 +1,10 @@
 # Asteroid ZMK Configuration
 
-A complete ZMK firmware configuration for the **Asteroid** split keyboard - a custom 6x6 layout split keyboard (72 keys total) designed for wireless operation with Nice!Nano v2 controllers.
+A complete ZMK firmware configuration for the **Asteroid** split keyboard - a custom 5x6 layout split keyboard (60 keys total) designed for wireless operation with Nice!Nano v2 controllers.
 
 ## Features
 
-- **6x6 Split Layout**: 72 keys total (36 per side)
+- **5x6 Split Layout**: 60 keys total (30 per side)
 - **Wireless Bluetooth**: Nice!Nano v2 nRF52840 controllers
 - **QWERTY Layout**: Modern ergonomic layout with function layers
 - **ZMK Studio Support**: Runtime keymap configuration without flashing firmware
@@ -28,7 +28,7 @@ This configuration includes full **ZMK Studio** support, allowing you to modify 
    - **Web App**: Visit [zmk.studio](https://zmk.studio/) in Chrome/Edge
    - **Desktop App**: Download from the [ZMK Studio releases page](https://github.com/zmkfirmware/zmk-studio/releases)
 
-4. **Unlock Your Keyboard**: Press the studio unlock key (FN + W) to allow ZMK Studio to make changes
+4. **Unlock Your Keyboard**: Press the studio unlock key (FN + SHIFT) to allow ZMK Studio to make changes
 
 5. **Configure Your Layout**: Use the visual interface to:
    - Remap any key to any function
@@ -49,14 +49,14 @@ This configuration includes full **ZMK Studio** support, allowing you to modify 
 
 ### Studio Unlock Key
 
-The studio unlock key is accessed by pressing **FN + W** (hold the FN key and press W). This puts the unlock key in the function layer next to the grave/tilde key, making it easily accessible but out of the way during normal typing. Once pressed, you can modify your keymap through the ZMK Studio interface.
+The studio unlock key is accessed by pressing **FN + SHIFT** (hold the FN key and press right Shift). This puts the unlock key in the function layer in an easily accessible location but out of the way during normal typing. Once pressed, you can modify your keymap through the ZMK Studio interface.
 
 **Note**: After using ZMK Studio to modify your keymap, changes made to the `.keymap` file will not take effect unless you perform a "Restore Stock Settings" action in ZMK Studio.
 
 ## Hardware Specifications
 
 - **Controllers**: Nice!Nano v2 (nRF52840)
-- **Layout**: 6x6 split (72 keys total)
+- **Layout**: 5x6 split (60 keys total)
 - **Connectivity**: Wireless Bluetooth + USB-C
 - **Battery**: 110mAh LiPo (recommended)
 - **Switches**: MX-compatible
@@ -65,12 +65,12 @@ The studio unlock key is accessed by pressing **FN + W** (hold the FN key and pr
 ## Pin Configuration
 
 ### Left Side (Central/Master)
-- **Rows**: P0.06, P0.08, P0.20, P0.22, P0.24, P0.11
-- **Columns**: P1.15, P1.00, P1.04, P1.06, P1.13, P1.11
+- **Rows**: P0.06, P0.08, P0.20, P0.22, P0.24 (5 rows)
+- **Columns**: P1.15, P1.00, P1.04, P1.06, P1.13, P1.11 (6 columns)
 
-### Right Side (Peripheral/Slave)
-- **Rows**: P0.31, P0.29, P0.02, P0.10, P0.09, P0.24
-- **Columns**: P1.06, P1.04, P1.00, P1.11, P1.13, P1.15
+### Right Side (Peripheral/Slave)  
+- **Rows**: P0.31, P0.29, P0.02, P0.10, P0.09 (5 rows)
+- **Columns**: P1.06, P1.04, P1.00, P1.11, P1.13, P1.15 (6 columns)
 
 ## Default Layout
 
@@ -79,30 +79,26 @@ The studio unlock key is accessed by pressing **FN + W** (hold the FN key and pr
 ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
 │     │  1  │  2  │  3  │  4  │  5  │   │  6  │  7  │  8  │  9  │  0  │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ TAB │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │BKSP │
+│ ESC │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │BKSP │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│CAPS │  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  ;  │  \  │
+│ TAB │  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  ;  │ENTER│
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │SHIFT│  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │SHIFT│
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │ ALT │CTRL │ FN  │ CMD │   │  ←  │  ↓  │  ↑  │  →  │     │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │SPACE│   │ENTER│     │     │     │     │UNLCK│
+│     │     │CTRL │ ALT │ CMD │SPACE│   │ FN  │     │     │     │     │     │
 └─────┴─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┴─────┘
 ```
 
 ### Layer 1 (Function/FN)
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┬─────┐
-│     │ F1  │ F2  │ F3  │ F4  │ F5  │   │ F6  │ F7  │ F8  │ F9  │ F10 │     │
+│     │ F1  │ F2  │ F3  │ F4  │ F5  │   │ F6  │ F7  │ F8  │  -  │  =  │     │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│ ESC │ `~  │     │     │     │     │   │ F11 │ F12 │  `  │  [  │  ]  │ DEL │
+│  `  │     │     │     │     │     │   │ F11 │ F12 │     │  [  │  ]  │ DEL │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │PREV │PLAY │NEXT │VOL- │VOL+ │   │     │     │     │     │  '  │     │
+│     │PREV │PLAY │NEXT │VOL+ │VOL- │   │BRI- │BRI+ │  ↑  │     │  '  │  \  │
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │ BT1 │ BT2 │ BT3 │BTCLR│   │LCLK │RCLK │     │  -  │  =  │     │
-├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
-│     │     │     │     │     │     │   │ M←  │ M↓  │ M↑  │ M→  │     │     │
+│     │     │ BT1 │ BT2 │ BT3 │BTCLR│   │     │  ←  │  ↓  │  →  │     │UNLCK│
 ├─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┤
 │     │     │     │     │     │     │   │     │     │     │     │     │     │
 └─────┴─────┴─────┴─────┴─────┴─────┘   └─────┴─────┴─────┴─────┴─────┴─────┘
@@ -162,7 +158,7 @@ This repository includes automated builds via GitHub Actions. Firmware files are
 ### ZMK Studio Connection Issues
 - Ensure the left side is connected via USB or properly paired via Bluetooth
 - Try refreshing the ZMK Studio web page or restarting the desktop app
-- Press the studio unlock key (FN + W) to enable configuration mode
+- Press the studio unlock key (FN + SHIFT) to enable configuration mode
 - Check that your browser supports WebHID (Chrome/Edge required for web app)
 
 ### Bluetooth Issues
