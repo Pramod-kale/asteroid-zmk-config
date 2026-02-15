@@ -149,7 +149,7 @@ This repository includes automated builds via GitHub Actions. Firmware files are
 1. **Download Firmware**: Get the `.uf2` files from GitHub Actions or local build
 2. **Enter Bootloader**: Double-tap the reset button on each Nice!Nano
 3. **Copy Firmware**: Drag the appropriate `.uf2` file to the mounted drive
-4. **Repeat**: Flash both left and right sides
+4. **Repeat**: Flash both left and right sides.
 
 **Important**: Always flash the left side (central) first, then the right side.
 
